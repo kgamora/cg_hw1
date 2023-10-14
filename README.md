@@ -1,41 +1,24 @@
 ![build_cmake_status](https://github.com/sadads1337/mse-gl-hw-template/actions/workflows/build_cmake.yml/badge.svg)
 
-# ITMO MSE OpenGL homework template 2022
+# ITMO MSE OpenGL ДЗ 1
 
-Qt based demo project to demonstrate how to use and implement basic 3D graphics features.
-No optimizations exists. Use only for educational purposes.
+Это первое домашнее задание по Компьютерной Графике.
 
-## Purposes
-
-Help students with their submission is the main goal of this repository. Do not use this code in production!!!
-
-## Requirements
+## Требования
 
 - git [https://git-scm.com](https://git-scm.com);
 - C++17 compatible compiler;
 - CMake 3.10+ [https://cmake.org/](https://cmake.org/);
 - Qt 5 [https://www.qt.io/](https://www.qt.io/);
-- (Optionally) Your favourite IDE;
-- (Optionally) Ninja build [https://ninja-build.org/](https://ninja-build.org/).
+- QtCreator;
+- Ninja build [https://ninja-build.org/](https://ninja-build.org/).
 
-## Hardware requirements
+## Сборка, запуск
 
-- GPU with OpenGL 3+ support.
+- В QtCreator открыть данный проект
+- Нажать на зелёную кнопку (или Ctrl+R). Всё обязательно соберётся и запустится
 
-## Build from console
+## Управление
 
-- Clone this repository `git clone <url> <path>`;
-- Go to root folder `cd <path-to-repo-root>`;
-- Create and go to build folder `mkdir -p build-release; cd build-release`;
-- Run CMake `cmake .. -G <generator-name> -DCMAKE_PREFIX_PATH=<path-to-qt-installation> -DCMAKE_BUILD_TYPE=Release`;
-- Run build. For Ninja generator it looks like `ninja -j<number-of-threads-to-build>`.
-
-## Build with MSVC
-
-- Clone this repository `git clone <url> <path>`;
-- Open root folder in IDE;
-- Build, possibly specify build configurations and path to Qt library.
-
-## Run and debug
-
-- Since we link with Qt dynamically don't forget to add `<qt-path>/<abi-arch>/bin` and `<qt-path>/<abi-arch>/plugins/platforms` to `PATH` variable.
+- Кнопки PgUp и PgDown отвечают за приближение
+- Кнопки WASD отвечают за навигацию по сторонам (направления - стандартны)
