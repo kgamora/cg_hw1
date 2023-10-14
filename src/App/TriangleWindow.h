@@ -20,8 +20,6 @@ public:
 	void render() override;
 
 protected:
-	void mousePressEvent(QMouseEvent * e) override;
-	void mouseReleaseEvent(QMouseEvent * e) override;
     void keyPressEvent(QKeyEvent * e) override;
     void keyReleaseEvent(QKeyEvent * e) override;
 
@@ -31,10 +29,9 @@ private:
     GLint fromPosUniform_ = -1;
 
     QVector2D fromPos_{-0.789136f, -0.150316f};
-//    QVector2D fromPos_{0.0f, 0.0f};
     GLfloat sizeX = 2.0;
 
-    GLfloat zoomSpeed = 1.005;
+    GLfloat zoomSpeed = 1.0;
 
 	QOpenGLBuffer vbo_{QOpenGLBuffer::Type::VertexBuffer};
 	QOpenGLBuffer ibo_{QOpenGLBuffer::Type::IndexBuffer};

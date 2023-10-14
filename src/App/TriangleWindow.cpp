@@ -81,8 +81,7 @@ void TriangleWindow::render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     // Calculate position change
-    fromPos_ += positionChange_;
-    positionChange_ = {0.0, 0.0};
+    fromPos_ += positionChange_ * sizeX * 0.01;
 
     // Get window size
     QVector2D windowSize{(GLfloat)width(), (GLfloat)height()};
@@ -114,17 +113,6 @@ void TriangleWindow::render()
 	++frame_;
 }
 
-void TriangleWindow::mousePressEvent(QMouseEvent * e)
-{
-	mousePressPosition_ = QVector2D(e->localPos());
-}
-
-void TriangleWindow::mouseReleaseEvent(QMouseEvent * e)
-{
-    const auto diff = QVector2D(e->localPos()) - mousePressPosition_;
-    positionChange_ = diff.normalized() * sizeX * 0.5;
-}
-
 void TriangleWindow::keyPressEvent(QKeyEvent * e)
 {
     switch( e->key() )
@@ -137,11 +125,41 @@ void TriangleWindow::keyPressEvent(QKeyEvent * e)
         zoomSpeed = 0.995;
         break;
 
+    case Qt::Key_S:
+        positionChange_ = {0.0, -1.0};
+        break;
+
+    case Qt::Key_W:
+        positionChange_ = {0.0, 1.0};
+        break;
+
+    case Qt::Key_A:
+        positionChange_ = {-1.0, 0.0};
+        break;
+
+    case Qt::Key_D:
+        positionChange_ = {1.0, 0.0};
+        break;
+
     default:
         break;
     }
 }
 
-void TriangleWindow::keyReleaseEvent(QKeyEvent *) {
-    zoomSpeed = 1.0;
+void TriangleWindow::keyReleaseEvent(QKeyEvent *e) {
+    switch( e->key() )
+    {
+    case Qt::Key_Down:
+    case Qt::Key_Up:
+        zoomSpeed = 1.0;
+        break;
+    case Qt::Key_S:
+    case Qt::Key_W:
+    case Qt::Key_A:
+    case Qt::Key_D:
+        positionChange_ = {0.0, 0.0};
+        break;
+    default:
+        break;
+    }
 }
