@@ -36,5 +36,11 @@ void main() {
 
     result = result / iters;
 
-    out_col = vec4(result, 0., 0., 1.);
+    vec3 a = vec3(0.5, 0.5, 0.5);
+    vec3 b = vec3(0.5, 0.5, 0.5);
+    vec3 c = vec3(1.0, 0.7, 0.4);
+    vec3 d = vec3(0.00, 0.15, 0.20);
+    vec3 color = a + b * cos(2.0 * 3.14 * (c * result + d));
+
+    out_col = vec4(color.rgb, 1.0);
 }
