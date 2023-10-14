@@ -16,7 +16,7 @@ void main() {
     bool threshold_surpassed = false;
 
     // to uniforms
-    int iters = 10;
+    int iters = 256;
     bool smoothing = true;
     //
 

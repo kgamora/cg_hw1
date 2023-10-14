@@ -143,5 +143,5 @@ void TriangleWindow::keyPressEvent(QKeyEvent * e)
 }
 
 void TriangleWindow::keyReleaseEvent(QKeyEvent *) {
-    zoomSpeed = 0.1;
+    zoomSpeed = 1.0;
 }
