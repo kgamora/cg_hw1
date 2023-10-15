@@ -1,7 +1,7 @@
 set(SRCS
     main.cpp
-    TriangleWindow.cpp
-    TriangleWindow.h
+    mandelbrotwidget.cpp
+    mandelbrotwidget.h
 
     shaders.qrc
     Shaders/fractal.fs
@@ -10,7 +10,10 @@ set(SRCS
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
-add_executable(demo-app ${SRCS})
+add_executable(demo-app ${SRCS}
+
+
+    mainwindow.h mainwindow.cpp)
 
 target_link_libraries(demo-app
     PRIVATE

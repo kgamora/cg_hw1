@@ -1,5 +1,7 @@
 #version 330 core
 
+uniform int iters;
+uniform float threshold;
 uniform vec2 windowSize;
 uniform vec2 sizes;
 uniform vec2 fromPos;
@@ -7,18 +9,13 @@ uniform vec2 fromPos;
 out vec4 out_col;
 
 void main() {
-    float threshold = 256.0;
     float threshold2 = threshold * threshold;
 
     vec2 xy0 = fromPos + ((gl_FragCoord.xy / windowSize) - 0.5) * sizes;
     vec2 xy = xy0;
 
     bool threshold_surpassed = false;
-
-    // to uniforms
-    int iters = 256;
     bool smoothing = true;
-    //
 
     int iter = 0;
     int cnt = 0;
